@@ -12,7 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *filesTableView;
 
-
 @end
 
 @implementation QPDocumentChooserViewController
@@ -21,7 +20,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
 #pragma mark - UITableViewDataSource Methods
@@ -32,17 +30,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *object;
     UITableViewCell *cell;
     static NSString *identifier = @"InformationTableViewCellIdentifier";
     
-    //cell = [self.stackTableView dequeueReusableCellWithIdentifier:identifier];
+    //cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
     
-    //object = [self.stack.reversedStackArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = object;
+    //cell.textLabel.text = ?;
+    //cell.detailTextLabel.text = ?;
     
     return cell;
 }
