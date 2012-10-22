@@ -1,26 +1,27 @@
 //
-//  QPViewController.m
+//  QPDocumentChooserViewController.m
 //  QueuePrinter
 //
 //  Created by Omar Gudino on 10/21/12.
 //  Copyright (c) 2012 Omar Gudino. All rights reserved.
 //
 
-#import "QPViewController.h"
 #import "QPDocumentChooserViewController.h"
 
-@interface QPViewController () <UITableViewDataSource, UITableViewDelegate, QPDocumentChooserViewControllerDelegate>
+@interface QPDocumentChooserViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIProgressView *printingProgressBar;
-@property (weak, nonatomic) IBOutlet UITableView *queueTableView;
+@property (weak, nonatomic) IBOutlet UITableView *filesTableView;
+
 
 @end
 
-@implementation QPViewController
+@implementation QPDocumentChooserViewController
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
 }
 
 #pragma mark - UITableViewDataSource Methods
@@ -50,18 +51,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-#pragma mark - QPDocumentChooserViewControllerDelegate Methods
-- (void)documentChooser:(QPDocumentChooserViewController *)documentChooser didChooseFileWithName:(NSString *)name fileSize:(NSString *)size
-{
-    
-}
-
-#pragma mark - Action Methods
-- (IBAction)chooseFileWasPressed:(id)sender
-{
-    
 }
 
 @end

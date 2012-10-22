@@ -18,6 +18,14 @@
 		993D9BA91634EA8100A7736D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 993D9BA81634EA8100A7736D /* Default-568h@2x.png */; };
 		993D9BAC1634EA8100A7736D /* QPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993D9BAB1634EA8100A7736D /* QPViewController.m */; };
 		993D9BAF1634EA8100A7736D /* QPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993D9BAD1634EA8100A7736D /* QPViewController.xib */; };
+		993D9BC41634F08900A7736D /* QPDocumentChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 993D9BC21634F08900A7736D /* QPDocumentChooserViewController.m */; };
+		993D9BC51634F08900A7736D /* QPDocumentChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993D9BC31634F08900A7736D /* QPDocumentChooserViewController.xib */; };
+		993D9BC91634F37B00A7736D /* QPQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 993D9BC81634F37B00A7736D /* QPQueue.m */; };
+		993D9BDC1634FCB100A7736D /* Apreciación del Arte.docx in Resources */ = {isa = PBXBuildFile; fileRef = 993D9BD71634FCB100A7736D /* Apreciación del Arte.docx */; };
+		993D9BDD1634FCB100A7736D /* Ficha Tecnica.docx in Resources */ = {isa = PBXBuildFile; fileRef = 993D9BD81634FCB100A7736D /* Ficha Tecnica.docx */; };
+		993D9BDE1634FCB100A7736D /* Jugador.docx in Resources */ = {isa = PBXBuildFile; fileRef = 993D9BD91634FCB100A7736D /* Jugador.docx */; };
+		993D9BDF1634FCB100A7736D /* Messi Balon D'Or.docx in Resources */ = {isa = PBXBuildFile; fileRef = 993D9BDA1634FCB100A7736D /* Messi Balon D'Or.docx */; };
+		993D9BE01634FCB100A7736D /* Mi estomago en este momento.docx in Resources */ = {isa = PBXBuildFile; fileRef = 993D9BDB1634FCB100A7736D /* Mi estomago en este momento.docx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +45,16 @@
 		993D9BAA1634EA8100A7736D /* QPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QPViewController.h; sourceTree = "<group>"; };
 		993D9BAB1634EA8100A7736D /* QPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QPViewController.m; sourceTree = "<group>"; };
 		993D9BAE1634EA8100A7736D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/QPViewController.xib; sourceTree = "<group>"; };
+		993D9BC11634F08900A7736D /* QPDocumentChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPDocumentChooserViewController.h; sourceTree = "<group>"; };
+		993D9BC21634F08900A7736D /* QPDocumentChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPDocumentChooserViewController.m; sourceTree = "<group>"; };
+		993D9BC31634F08900A7736D /* QPDocumentChooserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QPDocumentChooserViewController.xib; sourceTree = "<group>"; };
+		993D9BC71634F37B00A7736D /* QPQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPQueue.h; sourceTree = "<group>"; };
+		993D9BC81634F37B00A7736D /* QPQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPQueue.m; sourceTree = "<group>"; };
+		993D9BD71634FCB100A7736D /* Apreciación del Arte.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Apreciación del Arte.docx"; sourceTree = "<group>"; };
+		993D9BD81634FCB100A7736D /* Ficha Tecnica.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ficha Tecnica.docx"; sourceTree = "<group>"; };
+		993D9BD91634FCB100A7736D /* Jugador.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jugador.docx; sourceTree = "<group>"; };
+		993D9BDA1634FCB100A7736D /* Messi Balon D'Or.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Messi Balon D'Or.docx"; sourceTree = "<group>"; };
+		993D9BDB1634FCB100A7736D /* Mi estomago en este momento.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mi estomago en este momento.docx"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +101,17 @@
 		993D9B981634EA8100A7736D /* QueuePrinter */ = {
 			isa = PBXGroup;
 			children = (
+				993D9BD61634FC5A00A7736D /* Documents */,
 				993D9BA11634EA8100A7736D /* QPAppDelegate.h */,
 				993D9BA21634EA8100A7736D /* QPAppDelegate.m */,
 				993D9BAA1634EA8100A7736D /* QPViewController.h */,
 				993D9BAB1634EA8100A7736D /* QPViewController.m */,
 				993D9BAD1634EA8100A7736D /* QPViewController.xib */,
+				993D9BC11634F08900A7736D /* QPDocumentChooserViewController.h */,
+				993D9BC21634F08900A7736D /* QPDocumentChooserViewController.m */,
+				993D9BC31634F08900A7736D /* QPDocumentChooserViewController.xib */,
+				993D9BC71634F37B00A7736D /* QPQueue.h */,
+				993D9BC81634F37B00A7736D /* QPQueue.m */,
 				993D9B991634EA8100A7736D /* Supporting Files */,
 			);
 			path = QueuePrinter;
@@ -105,6 +129,18 @@
 				993D9BA81634EA8100A7736D /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		993D9BD61634FC5A00A7736D /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				993D9BD71634FCB100A7736D /* Apreciación del Arte.docx */,
+				993D9BD81634FCB100A7736D /* Ficha Tecnica.docx */,
+				993D9BD91634FCB100A7736D /* Jugador.docx */,
+				993D9BDA1634FCB100A7736D /* Messi Balon D'Or.docx */,
+				993D9BDB1634FCB100A7736D /* Mi estomago en este momento.docx */,
+			);
+			name = Documents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +200,12 @@
 				993D9BA71634EA8100A7736D /* Default@2x.png in Resources */,
 				993D9BA91634EA8100A7736D /* Default-568h@2x.png in Resources */,
 				993D9BAF1634EA8100A7736D /* QPViewController.xib in Resources */,
+				993D9BC51634F08900A7736D /* QPDocumentChooserViewController.xib in Resources */,
+				993D9BDC1634FCB100A7736D /* Apreciación del Arte.docx in Resources */,
+				993D9BDD1634FCB100A7736D /* Ficha Tecnica.docx in Resources */,
+				993D9BDE1634FCB100A7736D /* Jugador.docx in Resources */,
+				993D9BDF1634FCB100A7736D /* Messi Balon D'Or.docx in Resources */,
+				993D9BE01634FCB100A7736D /* Mi estomago en este momento.docx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +219,8 @@
 				993D9B9F1634EA8100A7736D /* main.m in Sources */,
 				993D9BA31634EA8100A7736D /* QPAppDelegate.m in Sources */,
 				993D9BAC1634EA8100A7736D /* QPViewController.m in Sources */,
+				993D9BC41634F08900A7736D /* QPDocumentChooserViewController.m in Sources */,
+				993D9BC91634F37B00A7736D /* QPQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +337,7 @@
 				993D9BB41634EA8100A7736D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
