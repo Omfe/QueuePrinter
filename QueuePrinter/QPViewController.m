@@ -92,17 +92,17 @@
         return;
     }
     
-    delayInSeconds = 0.5;
+    delayInSeconds = 0.1;
     popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     queue = dispatch_queue_create("com.Omfe.progressbarqueue", NULL);
     
-    for (NSInteger i = 0; i < 100; i += 5) {
+    for (NSInteger i = 0; i < 100; i++) {
         dispatch_after(popTime, queue, ^(void){
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSArray *indexPaths;
                 NSIndexPath *indexPath;
                 
-                self.printingProgressBar.progress = i;
+                self.printingProgressBar.progress++;
                 if (self.printingProgressBar.progress == 1) {
                     indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
                     indexPaths = [NSArray arrayWithObject:indexPath];
