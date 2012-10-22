@@ -65,7 +65,11 @@
 #pragma mark - Action Methods
 - (IBAction)chooseFileWasPressed:(id)sender
 {
+    QPDocumentChooserViewController *documentChooser;
     
+    documentChooser = [[QPDocumentChooserViewController alloc] initWithNibName:@"QPDocumentChooserViewController" bundle:nil];
+    documentChooser.delegate = self;
+    [self presentViewController:documentChooser animated:YES completion:nil];
 }
 
 @end
