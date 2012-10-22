@@ -19,7 +19,23 @@
 
 - (void)viewDidLoad
 {
+    NSArray *filePaths;
+    NSString *fileName;
+    NSString *fileSize;
+    NSDictionary *fileAttributes;
+    
     [super viewDidLoad];
+    
+    filePaths = [[NSBundle mainBundle] pathsForResourcesOfType:@"docx" inDirectory:@""];
+    for (NSString *filePath in filePaths) {
+        fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
+        fileSize = [[fileAttributes objectForKey:@"NSFileSize"] stringValue];
+        fileSize = [fileSize stringByAppendingString:@" bytes"];
+        fileName = [filePath lastPathComponent];
+        
+        NSLog(@"%@, %@", fileName, fileSize);
+        // Agregar el fileName y el fileSize a su respectivo arreglo.
+    }
 }
 
 #pragma mark - UITableViewDataSource Methods
