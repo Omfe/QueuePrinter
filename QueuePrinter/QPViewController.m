@@ -93,17 +93,13 @@
     self.isPrinting = YES;
     dispatchQueue = dispatch_queue_create("com.Omfe.progressbarqueue", NULL);
     dispatch_async(dispatchQueue, ^{
-        for (NSInteger i = 0; i <= 100; i += 10) {
-            NSNumber *number;
-            CGFloat floatValue;
+        for (CGFloat i = 0; i <= 100; i += 10) {
             
-            number = [NSNumber numberWithInteger:i];
-            floatValue = [number floatValue];
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSArray *indexPaths;
                 NSIndexPath *indexPath;
                 
-                [self.printingProgressBar setProgress:floatValue/100 animated:YES];
+                [self.printingProgressBar setProgress:i/100 animated:YES];
                 if (self.printingProgressBar.progress == 1) {
                     indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
                     indexPaths = [NSArray arrayWithObject:indexPath];
