@@ -60,6 +60,7 @@
 #pragma mark - QPDocumentChooserViewControllerDelegate Methods
 - (void)documentChooser:(QPDocumentChooserViewController *)documentChooser didChooseFileWithName:(NSString *)name fileSize:(NSString *)size
 {
+    [self dismissViewControllerAnimated:YES completion:nil];
     //push
     [self startProgress];
 }
@@ -67,7 +68,11 @@
 #pragma mark - Action Methods
 - (IBAction)chooseFileWasPressed:(id)sender
 {
+    QPDocumentChooserViewController *documentChooser;
     
+    documentChooser = [[QPDocumentChooserViewController alloc] initWithNibName:@"QPDocumentChooserViewController" bundle:nil];
+    documentChooser.delegate = self;
+    [self presentViewController:documentChooser animated:YES completion:nil];
 }
 
 #pragma mark - Private Methods
