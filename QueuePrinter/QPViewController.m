@@ -68,6 +68,7 @@
     indexPath = [NSIndexPath indexPathForRow:self.queue.queueArray.count-1 inSection:0];
     indexPaths = [NSArray arrayWithObject:indexPath];
     [self.queueTableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationLeft];
+    [self startProgressView];
 }
 
 #pragma mark - Action Methods
@@ -80,5 +81,50 @@
     [self presentViewController:documentChooser animated:YES completion:nil];
 }
 
+#pragma mark - Private Methods
+- (void)startProgressView
+{
+    dispatch_queue_t dispatchQueue;
+    
+    if (self.isPrinting) {
+        return;
+    }
+    
+    dispatchQueue = dispatch_queue_create("com.Omfe.progressbarqueue", NULL);
+    dispatch_async(dispatchQueue, ^{
+        for (NSInteger i = 0; i <= 100; i += 10) {
+            NSNumber *number;
+            CGFloat floatValue;
+            
+            number = [NSNumber numberWithInteger:i];
+            floatValue = [number floatValue];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSArray *indexPaths;
+                NSIndexPath *indexPath;
+                
+                [self.printingProgressBar setProgress:floatValue/100 animated:YES];
+                if (self.printingProgressBar.progress == 1) {
+                    indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                    indexPaths = [NSArray arrayWithObject:indexPath];
+                    
+                    [self.queue popAnObject];
+                    [self.queueTableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationRight];
+                    [self resetProgressView];
+                }
+            });
+            sleep(1);
+        }
+    });
+}
+
+- (void)resetProgressView
+{
+    self.printingProgressBar.progress = 0;
+    self.isPrinting = NO;
+    
+    if (self.queue.queueArray.count > 0) {
+        [self startProgressView];
+    }
+}
 
 @end
