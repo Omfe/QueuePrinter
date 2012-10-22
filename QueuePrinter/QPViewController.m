@@ -37,7 +37,7 @@
 {
     NSString *object;
     UITableViewCell *cell;
-    static NSString *identifier = @"InformationTableViewCellIdentifier";
+    static NSString *identifier = @"QueueTableViewCellIdentifier";
     
     cell = [self.queueTableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
