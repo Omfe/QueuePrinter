@@ -64,7 +64,7 @@
     NSIndexPath *indexPath;
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    indexPath = [NSIndexPath indexPathForRow:self.queue.queueArray.count inSection:0];
+    indexPath = [NSIndexPath indexPathForRow:self.queue.queueArray.count-1 inSection:0];
     indexPaths = [NSArray arrayWithObject:indexPath];
     [self.queue pushObject:name];
     [self.queueTableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationLeft];
