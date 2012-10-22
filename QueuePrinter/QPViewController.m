@@ -90,6 +90,7 @@
         return;
     }
     
+    self.isPrinting = YES;
     dispatchQueue = dispatch_queue_create("com.Omfe.progressbarqueue", NULL);
     dispatch_async(dispatchQueue, ^{
         for (NSInteger i = 0; i <= 100; i += 10) {
