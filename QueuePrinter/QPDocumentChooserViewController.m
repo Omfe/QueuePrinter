@@ -25,6 +25,8 @@
     NSDictionary *fileAttributes;
     
     [super viewDidLoad];
+    self.documentNameArray = [[NSMutableArray array] init];
+    self.documentSizeArray = [[NSMutableArray array] init];
     
     filePaths = [[NSBundle mainBundle] pathsForResourcesOfType:@"docx" inDirectory:@""];
     for (NSString *filePath in filePaths) {
@@ -41,15 +43,20 @@
 #pragma mark - UITableViewDataSource Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.documentNameArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
     static NSString *identifier = @"DocumentChooserTableViewCellIdentifier";
+    NSString *fileName;
+    NSString *fileSize;
     
-    //cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    fileName = [self.documentNameArray objectAtIndex:indexPath.row];
+    fileSize = [self.documentSizeArray objectAtIndex:indexPath.row];
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }

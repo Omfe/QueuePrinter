@@ -18,6 +18,8 @@
 
 @interface QPDocumentChooserViewController : UIViewController
 
+@property (strong, nonatomic) NSMutableArray *documentNameArray;
+@property (strong, nonatomic) NSMutableArray *documentSizeArray;
 @property (assign, nonatomic) id<QPDocumentChooserViewControllerDelegate> delegate;
 
 @end
