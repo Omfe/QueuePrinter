@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *queueTableView;
 
 @property (strong, nonatomic) QPQueue *queue;
+@property (assign, nonatomic) BOOL isPrinting;
 
 @end
 
@@ -59,13 +60,52 @@
 #pragma mark - QPDocumentChooserViewControllerDelegate Methods
 - (void)documentChooser:(QPDocumentChooserViewController *)documentChooser didChooseFileWithName:(NSString *)name fileSize:(NSString *)size
 {
-    
+    //push
+    [self startProgress];
 }
 
 #pragma mark - Action Methods
 - (IBAction)chooseFileWasPressed:(id)sender
 {
     
+}
+
+#pragma mark - Private Methods
+- (void)startProgress
+{
+    int64_t delayInSeconds;
+    dispatch_time_t popTime;
+    dispatch_queue_t queue;
+    
+    if (self.isPrinting) {
+        return;
+    }
+    
+    delayInSeconds = 1.0;
+    popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    queue = dispatch_queue_create("com.Omfe.progressbarqueue", NULL);
+    
+    for (NSInteger i = 0; i < 100; i += 10) {
+        dispatch_after(popTime, queue, ^(void){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.printingProgressBar.progress = i;
+                if (self.printingProgressBar.progress == 100) {
+                    //pop
+                    [self resetProgressView];
+                }
+            });
+        });
+    }
+}
+
+- (void)resetProgressView
+{
+    self.printingProgressBar.progress = 0;
+    self.isPrinting = NO;
+    
+    if (self.queue.queueArray.count > 0) {
+        [self startProgress];
+    }
 }
 
 @end
