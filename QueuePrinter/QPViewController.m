@@ -8,11 +8,14 @@
 
 #import "QPViewController.h"
 #import "QPDocumentChooserViewController.h"
+#import "QPQueue.h"
 
 @interface QPViewController () <UITableViewDataSource, UITableViewDelegate, QPDocumentChooserViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIProgressView *printingProgressBar;
 @property (weak, nonatomic) IBOutlet UITableView *queueTableView;
+
+@property (strong, nonatomic) QPQueue *queue;
 
 @end
 
@@ -21,12 +24,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.queue = [[QPQueue alloc] init];
 }
 
 #pragma mark - UITableViewDataSource Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.queue.queueArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -35,12 +39,12 @@
     UITableViewCell *cell;
     static NSString *identifier = @"InformationTableViewCellIdentifier";
     
-    //cell = [self.stackTableView dequeueReusableCellWithIdentifier:identifier];
+    cell = [self.queueTableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     
-    //object = [self.stack.reversedStackArray objectAtIndex:indexPath.row];
+    object = [self.queue.queueArray objectAtIndex:indexPath.row];
     cell.textLabel.text = object;
     
     return cell;
