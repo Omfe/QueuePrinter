@@ -60,8 +60,14 @@
 #pragma mark - QPDocumentChooserViewControllerDelegate Methods
 - (void)documentChooser:(QPDocumentChooserViewController *)documentChooser didChooseFileWithName:(NSString *)name fileSize:(NSString *)size
 {
+    NSArray *indexPaths;
+    NSIndexPath *indexPath;
+    
     [self dismissViewControllerAnimated:YES completion:nil];
-    //push
+    indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    indexPaths = [NSArray arrayWithObject:indexPath];
+    [self.queue pushObject:name];
+    [self.queueTableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationLeft];
     [self startProgress];
 }
 
@@ -93,9 +99,16 @@
     for (NSInteger i = 0; i < 100; i += 10) {
         dispatch_after(popTime, queue, ^(void){
             dispatch_async(dispatch_get_main_queue(), ^{
+                NSArray *indexPaths;
+                NSIndexPath *indexPath;
+                
                 self.printingProgressBar.progress = i;
                 if (self.printingProgressBar.progress == 100) {
-                    //pop
+                    indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                    indexPaths = [NSArray arrayWithObject:indexPath];
+                    
+                    [self.queue popAnObject];
+                    [self.queueTableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationRight];
                     [self resetProgressView];
                 }
             });
