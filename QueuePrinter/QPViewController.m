@@ -59,7 +59,7 @@
 #pragma mark - QPDocumentChooserViewControllerDelegate Methods
 - (void)documentChooser:(QPDocumentChooserViewController *)documentChooser didChooseFileWithName:(NSString *)name fileSize:(NSString *)size
 {
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Action Methods

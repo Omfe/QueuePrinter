@@ -70,7 +70,14 @@
 #pragma mark - UITableViewDelegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *fileName;
+    NSString *fileSize;
+    
+    fileName = [self.documentNameArray objectAtIndex:indexPath.row];
+    fileSize = [self.documentSizeArray objectAtIndex:indexPath.row];
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.delegate documentChooser:self didChooseFileWithName:fileName fileSize:fileSize];
 }
 
 @end
