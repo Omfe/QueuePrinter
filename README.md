@@ -1,8 +1,8 @@
- # QueuePrinter  
+# QueuePrinter  
 
   Simulation of document printing iPad app using Queue data structure.  
 
- ## Credits  
+## Credits  
 
  **Developed by**: Omar Gudiño  
  **School**: CETYS Universidad Tijuana  
