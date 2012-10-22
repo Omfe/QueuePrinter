@@ -31,7 +31,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
-    static NSString *identifier = @"InformationTableViewCellIdentifier";
+    static NSString *identifier = @"DocumentChooserTableViewCellIdentifier";
     
     //cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
